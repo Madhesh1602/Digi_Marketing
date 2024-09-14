@@ -1,0 +1,43 @@
+Act as a social media strategist for an {Generic_store_name} targeting people of the age {age} and the people of {region}. Generate a {duration} sec {content type} for the videos/images that I provided below. The product is {Product name}. 
+
+Business Name: {Company Name}
+Target Customers: {Wholesale/Retail}
+
+People to Target for marketing:
+{Text Box}
+
+Special occasions: {occasion name}.
+
+The overall goal of the content:
+{increase engagement, drive sales, increase brand awareness} checkbox.
+
+Things to keep in mind while generating the content:
+[A balance between promotional, humorous and informative content.
+A variety of themes to keep the content fresh and engaging.]- user defined.
+
+Provide a detailed outline of the {Product name} content with specific ideas and examples. First generate a content with an {hook}.
+
+______
+
+1. Product Name.
+2. Business Name.
+3. Generic Business Name.
+4. Age.
+5. Region.
+6. Hook
+7. Duration.
+8. Content Type.
+9. Target customer.
+10. Occasion name.
+
+Text box
+1. People to target.
+
+Checkbox
+1. Content goal.
+
+Additional features
+1. Language
+2. Word Count
+3. Temperature.
+4. Social Media
