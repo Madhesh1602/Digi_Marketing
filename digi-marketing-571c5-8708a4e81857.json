@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "digi-marketing-571c5",
+  "private_key_id": "8708a4e81857a0e530b38cd8d9d73fcabe75c091",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDvsrJzUMjU0Dwl\nl3WmxbMKjPSCfpZgJNgT7Hsi16J8BP/4HeFowqI2DI4GBCBWaWe6zS3G0MyeYC72\nE9LiQcQU3L+7N4vFvxwOKdmwRPQbEOQjx64IVyWoDstQP9j4ClurnrwtD3ORVXPP\nswifF5AQcofrTsMfaJvbooV9rR/7GNG6tLUA4615ZwVo0egjyzwqn52CQja3lhIn\nrA/nPu0Nco2YYrdUvw77D/gjtk9zgefrAf2CL6PmH/c8/xngPc1DoLdJoEHa4GrY\nRVHc0mJuY6mJ7dhT3OlbIs14GtJ4hIDImD91o4rW/qojc0GQ7StoJNkCP1wI9Sp8\nXFLz/burAgMBAAECggEAJZD058lsQvIvIwMa+hwM7zqKeEiHn8zWcpTtnYHRzNcU\nbi9HVwhTV4jd2gfb25R3IISB8qFhwvE3GvOeFD4TZuOhRvcHIw2hw38qnLYfKH4c\nC0GDFHqNWR/scbN3+TPXtyIlws14+COThs871YHiCbncHx7/yf82l2m1ZdjJZNbq\nywNlg32fxeAVlwuctB/G5jYTygkrfOTNon7hcOs/QQwxFDe4wo0MewVprRF7FYvI\ncpKomdQ9V05L38QoQhKeNWVXbMu1qDot1N/VcnFTpM0HlkUbcp/WfEjqeqSJ7cNn\nF16NrVJPNkdcq2WrS2S5RN+U2Aof8WWqbGrdNVgmYQKBgQD8PqaJ2owXyqr01e10\naFWA+N1RJEASdpN6y8ofybKORN99jKntrW61oZOLM7gs1v76EO7op+EbvFLY7gJP\njjKyLepUWOciCKgksCBiEVVA0JdatR3IZyiNwiFJbQLFzyjKivj8x/PSQPNd0WP1\n9W2TgiAE9UsdBsP80bzFIjXn4QKBgQDzRDqWPCjnTQK4rPMfPenPiGM3g+50ghJN\nEbhsmZH/sMgU28CBpjSR/fiuD4FgtY4h9qjt6tsw8bwwvydTsDSp+GzisJLHmX8e\nlIGUfJjZVU1I68RmjQ8v215wWg+9WGzq1QlsdnaRs8bbk/rU/etS6yT93btfsz8P\nuwQj+VFlCwKBgCObKGD/M5VMK3OiGwG6lI8/EeaZSl4Q1OKZj6+LBiRk/nM3fuko\n+R60byJQK6hQtO9Rope+0tzaaYtrlXHrbaaPKqu7XO0F8c4z+m49ah5bE3JfbJPU\nU/omtBIsTB7mDikBEwKDqxw7xN6yZvzaJxySWri4c2DmipXOeWoOWTOhAoGAU6qH\nq9wNBWBLK1DwXTJiE+qIlTNe89s4iCEsGM3IlPQsHGBoGS8crYl32gWjLavDspKv\nDwTTVkYNv4Y+9F2J/1tdt6mbEeMNAWt6FaO0virEZewQpGSncII2PNX8y9Z5v1p9\n3zvvE7WNE0AV6ONb6CzPkDCOnR989OARUH4TLHkCgYEAuLTW+9kPP5VoIFjGGumm\n+MKbWpYUnqql8/Fknp9SRk4AUzpMzuHg0JPFfZNVp/XqrysukU3pOBk6CcC+OEVv\nFyp/TPkLp3et9yl6b0Y0I6Q8rHaxqHTzpTrYflmfTI69pFQN5tayPSmvlK3Q4j48\noTId7dFwPwqk5JKnPznaMLY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-zc0ld@digi-marketing-571c5.iam.gserviceaccount.com",
+  "client_id": "110257633615290681827",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zc0ld%40digi-marketing-571c5.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
