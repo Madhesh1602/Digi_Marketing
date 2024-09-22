@@ -11,13 +11,20 @@ if not firebase_admin._apps:
 st.title("Welcome to Digi-Space")
 choice = st.selectbox('Login/Signup', ['Login','Sign Up'])
 
+def f():
+    try:
+        user = auth.get_user_by_email(email)
+        print (user.uid)
+        st.write('Login Successful')
+    except:
+        st.warning('Login Failed')
+
+
 if choice == 'Login':
     email = st.text_input('Email Address')
     password = st.text_input('Password', type='password')
 
-    if st.button('Login'):
-        # Implement login functionality here
-        st.success('Logged in successfully!')
+    st.button('Login', on_click = f)
 
 else:
     email = st.text_input('Email Address')
