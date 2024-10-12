@@ -16,8 +16,6 @@ def app ():
     if 'usermail' not in st.session_state:
         st.session_state.usermail = ''
 
-    
-    
     def f():
         try:
             user = auth.get_user_by_email(email)
