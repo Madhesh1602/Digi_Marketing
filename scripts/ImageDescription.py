@@ -7,7 +7,7 @@ from langchain_openai import ChatOpenAI
 from scripts.Templates import SHORT_DESCRIPTION_TEMPLATE
 from dotenv import load_dotenv
 
-load_dotenv("../../.env")
+load_dotenv("../.env")
 
 # LLM Components
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-002", temperature=0)
