@@ -2,13 +2,18 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from langchain_community.document_loaders.image import UnstructuredImageLoader
 
-from Templates import SHORT_DESCRIPTION_TEMPLATE
+from langchain_openai import ChatOpenAI
+
+from scripts.Templates import SHORT_DESCRIPTION_TEMPLATE
 from dotenv import load_dotenv
 
 load_dotenv("../.env")
 
 # LLM Components
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-002", temperature=0)
+# llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+
+
 short_description_prompt = PromptTemplate(
     template=SHORT_DESCRIPTION_TEMPLATE, input_variables=["image"]
 )

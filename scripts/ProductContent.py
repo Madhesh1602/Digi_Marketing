@@ -11,7 +11,7 @@ from langchain_core.messages import SystemMessage, AIMessage, HumanMessage
 from scripts.Templates import LONG_DESCRIPTION_TEMPLATE
 from dotenv import load_dotenv
 
-load_dotenv("../../.env")
+load_dotenv("../.env")
 
 
 class GenerateProductContent:

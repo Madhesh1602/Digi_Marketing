@@ -11,7 +11,7 @@ from io import BytesIO
 import tempfile
 from dotenv import load_dotenv
 
-load_dotenv("../.env")
+load_dotenv(".env")
 
 from scripts.ImageDescription import GetImageDescription
 from scripts.ProductContent import GenerateProductContent
