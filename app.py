@@ -30,6 +30,12 @@ def generate_content(user_inputs):
 
     return content
 
+@st.cache_data
+def refine_content(user_query):
+    content = st.session_state["product_content"].revise_content(user_query)
+
+    return content
+
 
 # ---------------------------------------------------------------------------------------
 # Session States
@@ -59,23 +65,10 @@ if image is not None:
         st.session_state["image_description"] = GetImageDescription.describe(image_path)
         os.remove(image_path)
 
-# if "uploaded_image" in st.session_state:
-#     col2.markdown(
-#         f'<link href="assets/styles.css" rel="stylesheet">',
-#         unsafe_allow_html=True,
-#     )
-#     col2.image(
-#         st.session_state["uploaded_image"],
-#         use_column_width=False,
-#         caption="Uploaded Image",
-#         output_format="PNG",
-#         width=150,
-#     )
-
-# st.divider()
-# st.session_state
 st.divider()
-button = False
+
+button = None
+button_2 = None
 
 if "image_description" in st.session_state:
 
@@ -183,28 +176,58 @@ if "image_description" in st.session_state:
             options=["Voiceover Script", "Post Caption"],
             placeholder="Select content type",
         )
-
+        button = False
         button = st.form_submit_button("Generate Content")
 
 if button is True:
-    content = generate_content(user_inputs)
+    st.session_state["content"] = generate_content(user_inputs)
 
-    st.markdown(
-        f"""
-        <div style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #f8f8f8;">
-            <p style="white-space: pre-wrap;">{content}</p> 
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    if "content" in st.session_state:
 
-    # Create a download button
-    st.download_button(
-        label="Download Content",
-        data=content,
-        file_name="generated_content.txt",
-        mime="text/plain",
-    )
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #f8f8f8;">
+                <p style="white-space: pre-wrap;">{st.session_state["content"]}</p> 
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        # Create a download button
+        st.download_button(
+            label = "Download Content",
+            data = st.session_state["content"],
+            file_name = "generated_content.txt",
+            mime = "text/plain",
+        )
 
     # st.write(content)
     # st.write("Content Generated Successfully!")
+
+if "content" in st.session_state:
+    button = True
+    with st.form("user_query"):
+        button_2 = False
+        user_query = st.text_input(label = "Enter your desired changes", key = "user_query")
+        button_2 = st.form_submit_button("Submit")
+
+if button_2 is True:
+    st.session_state["content"] = refine_content(user_query)
+    if "content" in st.session_state:
+
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #f8f8f8;">
+                <p style="white-space: pre-wrap;">{st.session_state["content"]}</p> 
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        # Create a download button
+        st.download_button(
+            label = "Download Content",
+            data = st.session_state["content"],
+            file_name = "generated_content.txt",
+            mime = "text/plain",
+        )
