@@ -11,7 +11,16 @@ from langchain_core.messages import SystemMessage, AIMessage, HumanMessage
 from scripts.Templates import LONG_DESCRIPTION_TEMPLATE
 from dotenv import load_dotenv
 
+import os
+from langfuse.callback import CallbackHandler
+
 load_dotenv("../.env")
+
+langfuse_handler = CallbackHandler(
+    public_key=os.environ["LANGFUSE_PUBLIC_KEY"],
+    secret_key=os.environ["LANGFUSE_SECRET_KEY"],
+    host=os.environ["LANGFUSE_HOST"],
+)
 
 
 class GenerateProductContent:
@@ -57,7 +66,7 @@ class GenerateProductContent:
             self.initialize_chain()
         input_dict = self.data
         del input_dict["temperature"]
-        result = self.chain.invoke(input_dict)
+        result = self.chain.invoke(input_dict, config={"callbacks": [langfuse_handler]})
         self.content = result.content
         return self.content
 
@@ -82,7 +91,8 @@ class GenerateProductContent:
                     AIMessage(content=f"{self.content}"),
                     HumanMessage(content=f"{query}"),
                 ],
-            }
+            },
+            config={"callbacks": [langfuse_handler]},
         )
         self.content = result.content
         return self.content

@@ -8,6 +8,7 @@ from scripts.Templates import SHORT_DESCRIPTION_TEMPLATE
 from dotenv import load_dotenv
 
 import base64
+from langfuse.openai import openai
 from openai import OpenAI
 
 load_dotenv("../.env")
