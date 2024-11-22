@@ -7,41 +7,52 @@ from langchain_openai import ChatOpenAI
 from scripts.Templates import SHORT_DESCRIPTION_TEMPLATE
 from dotenv import load_dotenv
 
+import base64
+from openai import OpenAI
+
 load_dotenv("../.env")
 
-# LLM Components
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-002", temperature=0)
-# llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-
-
-short_description_prompt = PromptTemplate(
-    template=SHORT_DESCRIPTION_TEMPLATE, input_variables=["image"]
-)
-short_description_chain = short_description_prompt | llm
+client = OpenAI()
 
 
 class GetImageDescription:
 
     def __init__(self, image_path):
 
-        global short_description_chain
-
         self.image_path = image_path
-        self.chain = short_description_chain
-        self.image_data = None
+        self.base64_image = None
 
-    def initialize_image_data(self):
-        loader = UnstructuredImageLoader(self.image_path)  # , mode="elements")
-        data = loader.load()
-        self.image_data = data
+    def encode_image(self):
+        with open(self.image_path, "rb") as image_file:
+            self.base64_image = base64.b64encode(image_file.read()).decode("utf-8")
 
     def generate_description(self):
-        self.initialize_image_data()
-        result = self.chain.invoke({"image": self.image_data})
-        return result.content
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            temperature=0,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": """{SHORT_DESCRIPTION_TEMPLATE}""",
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{self.base64_image}"
+                            },
+                        },
+                    ],
+                }
+            ],
+        )
+        return response.choices[0].message.content
 
     @classmethod
     def describe(cls, image_path):
         instance = cls(image_path)
+        instance.encode_image()
         description = instance.generate_description()
         return description
