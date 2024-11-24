@@ -30,6 +30,7 @@ def generate_content(user_inputs):
 
     return content
 
+
 @st.cache_data
 def refine_content(user_query):
     content = st.session_state["product_content"].revise_content(user_query)
@@ -144,6 +145,7 @@ if "image_description" in st.session_state:
         )
         user_inputs["hooks"] = ", ".join(hooks)
 
+        user_inputs["region"] = "India"
         user_inputs["region"] = col2.text_input(
             label="Target Region", placeholder="State/Country"
         )
@@ -161,12 +163,16 @@ if "image_description" in st.session_state:
         user_inputs["word_count"] = col2.slider(
             label="Word Count", min_value=150, max_value=500, value=150, step=50
         )
-        user_inputs["temperature"] = col3.slider(
-            label="Model Creativity",
-            min_value=0.0,
-            max_value=1.0,
-            value=0.5,
-            step=0.1,
+        user_inputs["content_style"] = col3.selectbox(
+            label="Content Style",
+            options=[
+                "Descriptive",
+                "Narrative",
+                "Persuasive",
+                "Expository",
+                "Argumentative",
+                "Analytical",
+            ],
         )
         user_inputs["target_customer"] = col2.selectbox(
             label="Target Customer", options=["Wholesaler", "Retailer"]
@@ -176,6 +182,42 @@ if "image_description" in st.session_state:
             options=["Voiceover Script", "Post Caption"],
             placeholder="Select content type",
         )
+        user_inputs["audience_prototype"] = col2.selectbox(
+            label="Audience Prototype",
+            options=[
+                "🔧 The DIY Customer",
+                "🚀 The Early Adopter",
+                "💸 The Bargain Hunter",
+                "🌱 The Eco-conscious Consumer",
+                "❤ The Brand Loyalist",
+                "💎 The Luxury Seeker",
+                "🏃‍♀ The Health Enthusiast",
+                "⏱ The Busy Professional",
+                "📸 The Trendsetter",
+                "🦋 The Social Butterfly",
+                "👨‍👩‍👧 The Family-oriented Shopper",
+                "📱 The Tech-savvy Customer",
+                "📚 The Knowledge Seeker",
+                "🎨 The Hobbyist",
+                "🏘 The Local Advocate",
+            ],
+        )
+        user_inputs["content_tone"] = col3.selectbox(
+            label="Content Tone",
+            options=[
+                "Informative",
+                "Authoritative",
+                "Persuasive",
+                "Confident",
+                "Academic",
+                "Scholarly",
+                "Serious",
+                "Objective",
+                "Logical",
+                "Curious",
+            ],
+        )
+
         button = False
         button = st.form_submit_button("Generate Content")
 
@@ -195,10 +237,10 @@ if button is True:
 
         # Create a download button
         st.download_button(
-            label = "Download Content",
-            data = st.session_state["content"],
-            file_name = "generated_content.txt",
-            mime = "text/plain",
+            label="Download Content",
+            data=st.session_state["content"],
+            file_name="generated_content.txt",
+            mime="text/plain",
         )
 
     # st.write(content)
@@ -208,7 +250,7 @@ if "content" in st.session_state:
     button = True
     with st.form("user_query"):
         button_2 = False
-        user_query = st.text_input(label = "Enter your desired changes", key = "user_query")
+        user_query = st.text_input(label="Enter your desired changes", key="user_query")
         button_2 = st.form_submit_button("Submit")
 
 if button_2 is True:
@@ -226,8 +268,8 @@ if button_2 is True:
 
         # Create a download button
         st.download_button(
-            label = "Download Content",
-            data = st.session_state["content"],
-            file_name = "generated_content.txt",
-            mime = "text/plain",
+            label="Download Content",
+            data=st.session_state["content"],
+            file_name="generated_content.txt",
+            mime="text/plain",
         )
