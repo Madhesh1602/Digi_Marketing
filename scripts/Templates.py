@@ -14,6 +14,12 @@ Generate a {content_duration} second {content_type} for {product_name}.
 
 **Content Goal(s):** {content_goal}
 
+**Content Tone(s):** {content_tone}
+
+**Content Style(s):** {content_style}
+
+**Audience Prototype(s):** {audience_prototype}
+
 **Special Occasion (if applicable):** {occasion_type}
 
 **Hook(s):** {hooks}
@@ -25,12 +31,13 @@ Generate a {content_duration} second {content_type} for {product_name}.
 
 **Content Guidelines:**
 
-* **Maintain a balance between promotional, informative, and engaging content.** 
-* **Incorporate the chosen hooks effectively to capture attention.**
-* **Tailor the language and tone to resonate with the target audience's age and cultural context in {region}.**
-* **Highlight key features and benefits of {product_name} based on the image description.**
-* **If applicable, creatively connect the content to the special occasion ({occasion_type}).**
-* **Ensure the content aligns with the chosen social media platform's best practices.** 
+* **Maintain a balance between promotional, informative, and engaging content.**  
+* **Adopt a {content_tone} tone and a {content_style} style to resonate with the target audience.**  
+* **Incorporate the chosen hooks effectively to capture attention.**  
+* **Highlight key features and benefits of {product_name} based on the image description.**  
+* **Tailor the content to appeal to the defined audience prototype(s): {audience_prototype}.**  
+* **If applicable, creatively connect the content to the special occasion ({occasion_type}).**  
+* **Ensure the content aligns with the best practices of the selected social media platform ({social_media}).**  
 
 **Deliverables:**
 
@@ -42,11 +49,16 @@ Provide a detailed outline of the {product_name} content.
 
 **Example Structure for Video Voiceover Script:**
 
-* **Hook (0-5 seconds):** [Grab attention with {hooks}. Example: Startling statistic, intriguing question, humorous scenario related to the product/problem it solves]
-* **Introduction (5-15 seconds):** [ Briefly introduce {business_name} and the problem {product_name} solves. Connect to the target audience's needs/desires.]
-* **Product Showcase (15-45 seconds):** [Highlight key features and benefits of {product_name} using vivid language and visuals from the image description.  Address potential objections (e.g., price, doubts about effectiveness).]
-* **Social Proof/Occasion Tie-in (45-60 seconds):**  [If applicable, include testimonials, user-generated content, or connect the product to the special occasion. ]
-* **Call to Action (60-{content_duration} seconds):** [Encourage viewers to take the desired action (visit website, learn more, make a purchase). Offer a limited-time promotion or incentive if relevant to the goal.] 
+* **Hook (0-5 seconds):**  
+  [Grab attention with {hooks}. Example: Startling statistic, intriguing question, or a humorous scenario related to the product/problem it solves.]  
+* **Introduction (5-15 seconds):**  
+  [Introduce {business_name} and the problem {product_name} solves. Connect it to the target audience's needs or desires, with an emphasis on the {audience_prototype}.]  
+* **Product Showcase (15-45 seconds):**  
+  [Highlight the product's key features and benefits in a {content_tone} tone and {content_style} style. Address potential objections (e.g., price, doubts about effectiveness) using examples relatable to the {audience_prototype}.]  
+* **Social Proof/Occasion Tie-in (45-60 seconds):**  
+  [Incorporate testimonials, user-generated content, or a connection to the special occasion, tailored to the {audience_prototype}.]  
+* **Call to Action ({content_duration} seconds):**  
+  [Encourage viewers to take the desired action (e.g., visit website, learn more, make a purchase). Offer a limited-time promotion or incentive relevant to the goal.]
 
 **Example Structure for Post Caption:**
 
