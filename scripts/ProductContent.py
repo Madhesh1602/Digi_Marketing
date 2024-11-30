@@ -34,8 +34,7 @@ class GenerateProductContent:
 
     def initialize_chain(self):
 
-        temperature = self.data["temperature"]
-        llm = ChatOpenAI(model="gpt-4o-mini", temperature=temperature)
+        llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
         content_prompt = PromptTemplate(
             template=LONG_DESCRIPTION_TEMPLATE,
@@ -55,6 +54,9 @@ class GenerateProductContent:
                 "hooks",
                 "language",
                 "word_count",
+                "content_tone",
+                "audience_prototype",
+                "content_style",
             ],
         )
 
@@ -65,7 +67,7 @@ class GenerateProductContent:
         if self.chain is None:
             self.initialize_chain()
         input_dict = self.data
-        del input_dict["temperature"]
+        # del input_dict["temperature"]
         result = self.chain.invoke(input_dict, config={"callbacks": [langfuse_handler]})
         self.content = result.content
         return self.content
@@ -75,7 +77,7 @@ class GenerateProductContent:
         prompt = ChatPromptTemplate.from_messages(
             [
                 SystemMessage(
-                    content="You are an experienced Digital Marketing content creator. Provide content as asked and revise the content if any feedback is provided."
+                    content="You are an experienced Digital Marketing content creator. Provide content as asked and revise the content if any feedback is provided. Please make sure to take into account all the available information and parameters",
                 ),
                 MessagesPlaceholder(variable_name="messages"),
             ]
